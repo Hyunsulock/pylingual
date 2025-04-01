@@ -136,7 +136,7 @@ class Decompiler:
         else:
             self.run_segmentation()
         self.run_translation()
-        
+        self.cflow_results = {bc.codeobj: [s] for bc, s in zip(self.ordered_bytecodes, self.source_lines)}
         self.reconstruct_source()
 
     def find_comp_error_cause(self, results: list[TestResult]):
